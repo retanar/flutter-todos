@@ -19,9 +19,8 @@ class MockRepo implements Repository {
   }
 
   @override
-  Future<void> removeTodo(Todo todo) {
-    // TODO: implement removeTodo
-    throw UnimplementedError();
+  Future<void> removeTodo(Todo todo) async {
+    todoList.remove(todo);
   }
 
 }

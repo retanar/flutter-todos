@@ -78,7 +78,12 @@ class TodoScreenState extends State<TodoScreen> {
             return;
           }
 
-          todoBloc.addTodo(Todo(titleFieldController.text, contentsFieldController.text));
+          final newTodo = Todo(titleFieldController.text, contentsFieldController.text);
+          if (todoArg == null) {
+            todoBloc.addTodo(newTodo);
+          } else {
+            todoBloc.replaceTodo(todoArg!, newTodo);
+          }
 
           Navigator.pop(context);
         },

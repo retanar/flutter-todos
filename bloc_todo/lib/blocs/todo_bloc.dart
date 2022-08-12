@@ -6,8 +6,8 @@ import 'package:bloc_todo/repositories/mock_repo.dart';
 import 'package:bloc_todo/repositories/repository.dart';
 import 'package:rxdart/rxdart.dart';
 
-final todoBloc = TodoBloc._internal(
-    (Platform.isAndroid || Platform.isIOS) ? DatabaseRepository() : MockRepo()); // TODO: Change to real repo
+// MockRepo is used only for easier testing
+final todoBloc = TodoBloc._internal((Platform.isAndroid || Platform.isIOS) ? DatabaseRepository() : MockRepo());
 
 class TodoBloc {
   final Repository _repo;
@@ -29,6 +29,11 @@ class TodoBloc {
   Future<void> removeTodo(Todo todo) async {
     await _repo.removeTodo(todo);
     await fetchTodos();
+  }
+
+  Future<void> replaceTodo(Todo oldTodo, Todo newTodo) async {
+    await _repo.removeTodo(oldTodo);
+    await addTodo(newTodo);
   }
 
   void dispose() {
