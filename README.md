@@ -1,4 +1,4 @@
-A collection of practice Todo apps with different architectures
+A collection of practice Todo apps on Flutter with different architectures.
 
 Order:
 1. [mvp_todo](mvp_todo)
