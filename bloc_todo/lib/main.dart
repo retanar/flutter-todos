@@ -12,7 +12,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'TODO MVP',
+      title: 'TODO BLOC',
       theme: ThemeData(
         primarySwatch: Colors.blueGrey,
       ),
