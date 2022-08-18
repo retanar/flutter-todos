@@ -15,6 +15,7 @@ class MockRepo implements Repository {
 
   @override
   Future<List<Todo>> getTodosList() async {
+    Future.delayed(const Duration(milliseconds: 800));
     return todoList;
   }
 

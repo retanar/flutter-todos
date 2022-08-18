@@ -1,16 +1,8 @@
 # riverpod_todo
 
-A new Flutter project.
+Todo app with Riverpod for state management and talking to the database. 
+SQLite database (sqflite package) is used for storage on mobile, and 
+[Mock repository](lib/repositories/mock_repo.dart) for testing on desktop.
 
-## Getting Started
-
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+Currently Riverpod doesn't update the HomePage after updates to the Todo List 
+on Windows for any reason.

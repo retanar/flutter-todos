@@ -21,7 +21,7 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.deepPurple,
       ),
       routes: {
-        TodoPage.route: (context) => const TodoPage(),
+        TodoPage.route: (context) => TodoPage(),
       },
       home: const HomePage(),
     );

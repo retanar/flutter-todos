@@ -11,7 +11,8 @@ class HomePage extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final list = ref.watch(todosProvider);
+    List<Todo> list = ref.watch(todosProvider);
+
     return Scaffold(
       appBar: AppBar(
         title: const Text("TODO Riverpod"),

@@ -31,4 +31,9 @@ class TodoNotifier extends StateNotifier<List<Todo>> {
     await _repo.removeTodo(oldTodo);
     await addTodo(newTodo);
   }
+
+  Future<void> removeTodo(Todo todo) async {
+    await _repo.removeTodo(todo);
+    await loadTodos();
+  }
 }

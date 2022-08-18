@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:riverpod_todo/models/todo_notifier.dart';
 
 import '../models/todo.dart';
 import '../pages/todo_page.dart';
@@ -13,7 +14,7 @@ class TodoListItemView extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     return InkWell(
         onLongPress: () {
-          showDialog(context: context, builder: (context) => _showRemovePopup(context));
+          showDialog(context: context, builder: (context) => _showRemovePopup(context, ref));
         },
         onTap: () {
           _navigateTodoScreen(context, _todoState);
@@ -39,7 +40,7 @@ class TodoListItemView extends ConsumerWidget {
   }
 
   // TODO remove popup
-  Widget _showRemovePopup(BuildContext context) {
+  Widget _showRemovePopup(BuildContext context, WidgetRef ref) {
     return AlertDialog(
       title: const Text("Remove TODO?"),
       actions: [
@@ -51,7 +52,7 @@ class TodoListItemView extends ConsumerWidget {
         TextButton(
             child: const Text("YES"),
             onPressed: () {
-              // todoBloc.removeTodo(_todoState);
+              ref.read(todosProvider.notifier).removeTodo(_todoState);
               Navigator.pop(context);
             }),
       ],
