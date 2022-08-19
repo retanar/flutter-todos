@@ -3,7 +3,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../models/todo.dart';
 import '../models/todo_notifier.dart';
-import '../views/todo_view.dart';
+import '../views/todo_item_view.dart';
 import 'todo_page.dart';
 
 class HomePage extends ConsumerWidget {
@@ -12,6 +12,7 @@ class HomePage extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     List<Todo> list = ref.watch(todosProvider);
+    print("Build homepage, list size: ${list.length}");
 
     return Scaffold(
       appBar: AppBar(
@@ -30,7 +31,7 @@ class HomePage extends ConsumerWidget {
   Widget buildList(List<Todo> list) {
     return ListView.builder(
       itemCount: list.length,
-      padding: const EdgeInsets.all(8),
+      padding: const EdgeInsets.all(4),
       itemBuilder: (context, i) {
         return TodoListItemView(list[list.length - i - 1]);
       },
