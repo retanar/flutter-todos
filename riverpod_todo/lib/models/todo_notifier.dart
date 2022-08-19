@@ -28,6 +28,7 @@ class TodoNotifier extends StateNotifier<List<Todo>> {
   }
 
   Future<void> replaceTodo(Todo oldTodo, Todo newTodo) async {
+    if (oldTodo == newTodo) return;
     await _repo.removeTodo(oldTodo);
     await addTodo(newTodo);
   }

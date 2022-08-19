@@ -15,7 +15,7 @@ class MockRepo implements Repository {
 
   @override
   Future<List<Todo>> getTodosList() async {
-    Future.delayed(const Duration(milliseconds: 800));
+    await Future.delayed(const Duration(milliseconds: 800));
     return todoList;
   }
 
@@ -23,5 +23,4 @@ class MockRepo implements Repository {
   Future<void> removeTodo(Todo todo) async {
     todoList.remove(todo);
   }
-
 }
